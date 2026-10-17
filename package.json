@@ -1,6 +1,6 @@
 {
   "name": "arcade-kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shared code for the NES-style browser games: pixel font, drawing, chiptune audio engine, high scores, touch controls, gamepad fallback.",
   "license": "MIT",
   "type": "module",

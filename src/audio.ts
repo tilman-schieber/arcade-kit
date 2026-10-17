@@ -8,7 +8,14 @@ let noiseBuf: AudioBuffer;
 let volume = 0.22;
 
 /** Starts sound; call it from a key press, tap or click, as browsers only allow audio after one. */
+/**
+ * Inside another page (an iframe, such as the showcase's live previews) the games stay silent:
+ * without an audio context every tone, noise and tune is a no-op.
+ */
+const embedded = typeof window !== 'undefined' && window.self !== window.top;
+
 export function unlockAudio() {
+  if (embedded) return;
   // iOS: play through the silent switch like a media app (Safari 16.4+).
   const session = (navigator as { audioSession?: { type: string } }).audioSession;
   if (session && session.type !== 'playback') session.type = 'playback';
